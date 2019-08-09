@@ -1,7 +1,8 @@
 import React, { useRef, useContext } from 'react'
-import axios from 'axios'
 import { githubActions, GithubContext } from '../../ducks/github'
 import apiService from '../../services/apiService'
+
+import Input from '../../components/Input'
 
 const GithubUserForm: React.FC = () => {
   const { dispatch } = useContext(GithubContext)
@@ -22,7 +23,7 @@ const GithubUserForm: React.FC = () => {
   return (
     <form onSubmit={getUserRepos}>
       <label htmlFor="username">GitHub username:</label>
-      <input ref={inputRef} type="text" id="username" placeholder="dmscn" />
+      <Input ref={inputRef} type="text" id="username" placeholder="dmscn" />
       <button onClick={getUserRepos}>Go</button>
     </form>
   )
