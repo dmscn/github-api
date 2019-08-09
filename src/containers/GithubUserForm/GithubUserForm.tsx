@@ -1,8 +1,7 @@
 import React, { useRef, useContext } from 'react'
 import axios from 'axios'
 import { githubActions, GithubContext } from '../../ducks/github'
-
-const BASE_URL = 'https://api.github.com'
+import apiService from '../../services/apiService'
 
 const GithubUserForm: React.FC = () => {
   const { dispatch } = useContext(GithubContext)
@@ -13,7 +12,7 @@ const GithubUserForm: React.FC = () => {
     try {
       // @ts-ignore
       const username: any = inputRef.current.value
-      const { data } = await axios.get(`${BASE_URL}/users/${username}/repos`)
+      const { data } = await apiService.getUserRepos(username)
       dispatch(githubActions.loadRepos(data))
     } catch (err) {
       console.error({ err })
