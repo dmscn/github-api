@@ -1,21 +1,29 @@
-import React, { useReducer } from 'react'
+import React, { lazy, useReducer, Suspense } from 'react'
 import { githubReducer } from '../../ducks'
 import { GithubContext } from '../../ducks/github'
+import { Router, RouteComponentProps } from '@reach/router'
 
-import GithubUserForm from '../GithubUserForm'
-import Repos from '../Repos'
+import Loading from '../../pages/Loading'
+
+const AsyncHomePage: React.FC<RouteComponentProps> = lazy(() =>
+  import('../../pages/HomePage')
+)
+
+const AsyncRepoPage: React.FC<RouteComponentProps> = lazy(() =>
+  import('../../pages/RepoPage')
+)
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(githubReducer, [])
-  const { repos } = state
 
   return (
     <GithubContext.Provider value={{ state, dispatch }}>
-      <GithubUserForm />
-      <Repos.List>
-        {repos &&
-          repos.map((repo: any) => <Repos.Item key={repo.id} repo={repo} />)}
-      </Repos.List>
+      <Suspense fallback={<Loading />}>
+        <Router>
+          <AsyncHomePage path="/" />
+          <AsyncRepoPage path="/repo/:repoId" />
+        </Router>
+      </Suspense>
     </GithubContext.Provider>
   )
 }

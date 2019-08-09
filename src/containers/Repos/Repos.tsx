@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@reach/router'
 
 export interface ListProps {
   children?: React.ReactNode
@@ -15,5 +16,9 @@ export interface ItemProps {
 
 export const Item: React.FC<ItemProps> = (props: ItemProps) => {
   const { repo } = props
-  return <li>{repo.name}</li>
+  return (
+    <li>
+      <Link to={`/repo/${repo.id}`}>{repo.name}</Link>
+    </li>
+  )
 }

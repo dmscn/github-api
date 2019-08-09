@@ -1,4 +1,4 @@
-import React, { useRef, useReducer, useContext } from 'react'
+import React, { useRef, useContext } from 'react'
 import axios from 'axios'
 import { githubActions, GithubContext } from '../../ducks/github'
 
@@ -8,7 +8,7 @@ const GithubUserForm: React.FC = () => {
   const { dispatch } = useContext(GithubContext)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const getUserRepos = async (event: React.MouseEvent) => {
+  const getUserRepos = async (event: React.FormEvent | React.MouseEvent) => {
     event.preventDefault()
     try {
       // @ts-ignore
@@ -21,11 +21,11 @@ const GithubUserForm: React.FC = () => {
   }
 
   return (
-    <>
+    <form onSubmit={getUserRepos}>
       <label htmlFor="username">GitHub username:</label>
       <input ref={inputRef} type="text" id="username" placeholder="dmscn" />
       <button onClick={getUserRepos}>Go</button>
-    </>
+    </form>
   )
 }
 
