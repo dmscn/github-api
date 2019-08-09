@@ -2,8 +2,19 @@
 
 exports[`<App /> renders 1`] = `
 <div>
-  <div>
-    Hello World
-  </div>
+  <label
+    for="username"
+  >
+    GitHub username:
+  </label>
+  <input
+    id="username"
+    placeholder="dmscn"
+    type="text"
+  />
+  <button>
+    Go
+  </button>
+  <ul />
 </div>
 `;
