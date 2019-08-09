@@ -6,8 +6,8 @@ const getUserRepos = (username: string) => {
   return Axios.get(`${BASE_URL}/users/${username}/repos`)
 }
 
-const getReposCommit = (username: string, repoId: number) => {
-  return Axios.get(`${BASE_URL}/repos/${username}/${repoId}/commits`)
+const getReposCommit = (username: string, repoName: string) => {
+  return Axios.get(`${BASE_URL}/repos/${username}/${repoName}/commits`)
 }
 
 export default {
