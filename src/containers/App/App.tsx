@@ -1,7 +1,11 @@
 import React from 'react'
+import { useStore } from 'react-redux'
 
 const App: React.FC = () => {
-  return <div>Hello World</div>
+  const { getState } = useStore()
+  const { repos } = getState().github
+
+  return <div>{repos}</div>
 }
 
 export default App
