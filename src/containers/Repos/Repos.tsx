@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
-import ListAtom from '../../components/List'
+import ListComponent, { ListItem } from '../../components/List'
+import Text from '../../components/Text'
 
 export interface ListProps {
   children?: React.ReactNode
@@ -8,18 +9,19 @@ export interface ListProps {
 
 export const List: React.FC<ListProps> = (props: ListProps) => {
   const { children } = props
-  return <ListAtom>{children}</ListAtom>
+  return <ListComponent>{children}</ListComponent>
 }
 
 export interface ItemProps {
   repo: any
+  onItemClicked: (event: React.MouseEvent) => void
 }
 
 export const Item: React.FC<ItemProps> = (props: ItemProps) => {
   const { repo } = props
   return (
-    <li>
-      <Link to={`/repo/${repo.id}`}>{repo.name}</Link>
-    </li>
+    <ListItem onClick={props.onItemClicked}>
+      <Text>{repo.name}</Text>
+    </ListItem>
   )
 }
