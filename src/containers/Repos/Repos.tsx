@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import ListAtom from '../../components/List'
 
 export interface ListProps {
   children?: React.ReactNode
@@ -7,7 +8,7 @@ export interface ListProps {
 
 export const List: React.FC<ListProps> = (props: ListProps) => {
   const { children } = props
-  return <ul>{children}</ul>
+  return <ListAtom>{children}</ListAtom>
 }
 
 export interface ItemProps {

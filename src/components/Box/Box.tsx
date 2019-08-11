@@ -3,9 +3,11 @@ import styled, { StyledComponentProps } from 'styled-components'
 
 export interface BoxProps extends StyledComponentProps<'div', any, {}, never> {
   flex?: number | string
-  direction?: 'column' | 'row'
+  column?: boolean
   justify?: string
   align?: string
+  width?: string | number
+  height?: string | number
   padding?: string | number
   paddingVertical?: string | number
   paddingHorizontal?: string | number
@@ -16,10 +18,20 @@ export interface BoxProps extends StyledComponentProps<'div', any, {}, never> {
 
 const Box: React.FC<BoxProps> = styled.div<BoxProps>`
   display: flex;
+  width: ${props => props.width};
+  height: ${props => props.height};
   flex: ${props => props.flex};
-  direction: ${props => props.direction || 'row'};
+  flex-direction: ${props => (props.column ? 'column' : 'row')};
   justify-content: ${props => props.justify || 'flex-start'};
   align-items: ${props => props.align || 'flex-start'};
+  margin-top: ${props => props.margin || props.marginVertical || 0}px;
+  margin-bottom: ${props => props.margin || props.marginVertical || 0}px;
+  margin-left: ${props => props.margin || props.marginHorizontal || 0}px;
+  margin-right: ${props => props.margin || props.marginHorizontal || 0}px;
+  padding-top: ${props => props.padding || props.paddingVertical || 0}px;
+  padding-bottom: ${props => props.padding || props.paddingVertical || 0}px;
+  padding-left: ${props => props.padding || props.paddingHorizontal || 0}px;
+  padding-right: ${props => props.padding || props.paddingHorizontal || 0}px;
 `
 
 export default Box

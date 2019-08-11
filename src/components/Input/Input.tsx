@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
-const Input: React.FC = styled.input`
+const Input: React.FC<any> = styled.input`
   border: solid 1px silver;
   outline: none;
   border-radius: 1px;

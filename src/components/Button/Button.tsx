@@ -1,7 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { StyledComponentProps } from 'styled-components'
 
-const Button: React.FC = styled.button`
+export type ButtonProps = StyledComponentProps<'button', any, {}, never>
+
+const Button: React.FC<ButtonProps> = styled.button`
   background-color: white;
   border: 1px solid dimgray;
   color: dimgray;
@@ -15,6 +17,7 @@ const Button: React.FC = styled.button`
   &:hover {
     background-color: dimgray;
     color: white;
+    cursor: pointer;
   }
   &:active {
     transform: translate(2px, 2px);

@@ -3,6 +3,9 @@ import { githubActions, GithubContext } from '../../ducks/github'
 import apiService from '../../services/apiService'
 
 import Input from '../../components/Input'
+import Button from '../../components/Button'
+import Label from '../../components/Label'
+import Box from '../../components/Box'
 
 const GithubUserForm: React.FC = () => {
   const { dispatch } = useContext(GithubContext)
@@ -22,9 +25,15 @@ const GithubUserForm: React.FC = () => {
 
   return (
     <form onSubmit={getUserRepos}>
-      <label htmlFor="username">GitHub username:</label>
-      <Input ref={inputRef} type="text" id="username" placeholder="dmscn" />
-      <button onClick={getUserRepos}>Go</button>
+      <Box column marginVertical={10} marginHorizontal={5}>
+        <Label htmlFor="username">GitHub username:</Label>
+        <Box>
+          <Input ref={inputRef} type="text" id="username" placeholder="dmscn" />
+          <Box marginHorizontal={10}>
+            <Button onClick={getUserRepos}>Go</Button>
+          </Box>
+        </Box>
+      </Box>
     </form>
   )
 }
