@@ -11,8 +11,8 @@ const Text: React.FC<TextProps> = styled.span<TextProps>`
   color: dimgray;
   text-decoration: none;
   line-height: 2em;
-  font-size: ${props => (props.large ? '52px' : '16px')};
-  font-weight: ${props => (props.bold ? 'bold' : 'normal')};
+  font-size: ${props => props.large && '52px'};
+  font-weight: ${props => props.bold && 'bold'};
 `
 
 export default Text
