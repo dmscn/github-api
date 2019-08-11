@@ -8,9 +8,9 @@ exports[`<App /> renders 1`] = `
   display: flex;
   width: 100vw;
   height: 100vh;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -29,14 +29,119 @@ exports[`<App /> renders 1`] = `
   padding-right: 0px;
 }
 
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  color: dimgray;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 2em;
+}
+
+.c3 {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.c4 {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background-color: dimgray;
+  -webkit-animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  left: 6px;
+  -webkit-animation-delay: -0.24s;
+  animation-delay: -0.24s;
+}
+
+.c5 {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background-color: dimgray;
+  -webkit-animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  left: 26px;
+  -webkit-animation-delay: -0.12s;
+  animation-delay: -0.12s;
+}
+
+.c6 {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background-color: dimgray;
+  -webkit-animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation: loadingAnimation 1.2s cubic-bezier(0,0.5,0.5,1) infinite;
+  left: 45px;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+}
+
 <div>
+  <div
+    role="group"
+    style="outline: none; display: none;"
+    tabindex="-1"
+  />
   <div
     class="c0"
     height="100vh"
     width="100vw"
   >
-    <div>
+    <div
+      class="c1"
+    >
       Loading...
+    </div>
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        />
+         
+        <div
+          class="c5"
+        />
+         
+        <div
+          class="c6"
+        />
+      </div>
     </div>
   </div>
 </div>
