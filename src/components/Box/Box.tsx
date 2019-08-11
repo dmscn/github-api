@@ -4,6 +4,7 @@ import styled, { StyledComponentProps } from 'styled-components'
 export interface BoxProps extends StyledComponentProps<'div', any, {}, never> {
   flex?: number | string
   column?: boolean
+  center?: boolean
   justify?: string
   align?: string
   width?: string | number
@@ -22,8 +23,10 @@ const Box: React.FC<BoxProps> = styled.div<BoxProps>`
   height: ${props => props.height};
   flex: ${props => props.flex};
   flex-direction: ${props => (props.column ? 'column' : 'row')};
-  justify-content: ${props => props.justify || 'flex-start'};
-  align-items: ${props => props.align || 'flex-start'};
+  justify-content: ${props =>
+    (props.center && 'center') || props.justify || 'flex-start'};
+  align-items: ${props =>
+    (props.center && 'center') || props.align || 'flex-start'};
   margin-top: ${props => props.margin || props.marginVertical || 0}px;
   margin-bottom: ${props => props.margin || props.marginVertical || 0}px;
   margin-left: ${props => props.margin || props.marginHorizontal || 0}px;
